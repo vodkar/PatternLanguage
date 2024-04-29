@@ -17,7 +17,7 @@ namespace pl::lib::libstd::mem {
         u32 occurrences      = 0;
         const u64 bufferSize = ctx->getDataSize();
         const u64 endOffset  = offsetTo <= offsetFrom ? bufferSize : std::min(bufferSize, u64(offsetTo));
-        for (u64 offset = offsetFrom; offset < endOffset - sequence.size(); offset++) {
+        for (u64 offset = offsetFrom; offset <= endOffset - sequence.size(); offset++) {
             ctx->readData(offset, bytes.data(), bytes.size(), ptrn::Pattern::MainSectionId);
 
             if (bytes == sequence) {
